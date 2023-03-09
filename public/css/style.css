@@ -320,6 +320,7 @@ button {
 .about-fixed {
     position: fixed;
     width: 20.8%;
+    margin-left: -10%;
 }
 
 .my-pic {
@@ -1809,6 +1810,19 @@ blockquote {
 }
 
 .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 46px;
+    text-decoration: none;
+}
+
+.navbarauth{
+    display: flex;
+    justify-content: right;
+}
+.navbarauth a {
     float: left;
     display: block;
     color: #f2f2f2;

@@ -13,10 +13,15 @@ class MiddlewareTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_pages_connection()
     {
-        $response = $this->get('/main_bord');
+        $pageslist=[
+            '/','/about','/contact','/single','/work'
+        ];
 
-        $response->assertStatus(200);
+        foreach ($pageslist as $page)
+            $response = $this->get($page)->assertStatus(200);
+
+
     }
 }

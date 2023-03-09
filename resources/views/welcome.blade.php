@@ -1,4 +1,4 @@
-@extends('layouts/template')
+@extends('layouts.template')
 @section('content')
 
 <div id="main">
@@ -13,7 +13,7 @@
 
                     <div class="my-pic">
                         <img src="{{ asset("/images/pic/my-pic.png") }}" alt="">
-                        <a href="{{ url("javascript:void(0)") }}" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
+                        <a href="#" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
                         <div id="menu" class="collapse">
                             <ul class="menu-link">
                                 <li><a href="{{ url("/about") }}">About</a></li>

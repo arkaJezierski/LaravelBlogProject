@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\Auth\;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,10 @@ Route::view('/about', 'about');
 Route::view('/contact','contact');
 Route::view('/single', 'single');
 Route::view('/work', 'work');
-Route::view('/template','template');
+Route::get('/dashboard', [\App\Http\Controllers\PostController::class, 'index'])
+    ->name('dashboard');
 
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');

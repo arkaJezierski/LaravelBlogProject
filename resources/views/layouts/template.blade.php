@@ -63,20 +63,30 @@
     <a href="/contact">Contact</a>
     <a href="/single">Single</a>
     <a href="/work">Work</a>
-    @if(Route::has('login'))
-        <div class="hidden-login-buttons">
-            @auth
-                <a href="{{ url('/discussion') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <a href="/dashboard">Dashboard</a>
+    <div class="navbarauth">
+        @guest
+            @if (Route::has('login'))
+                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+            @endif
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
+            @if (Route::has('register'))
+                 <a href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endif
+        @else
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+        @endguest
+    </div>
 </div>
 
 @yield('content')
