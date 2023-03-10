@@ -33,9 +33,10 @@
 
                                     </div>
 
-                                    @foreach($categories as $categori)
-                                        <h1>{{$categori->title}}</h1>
-                                        <h2>{{$categori->post_text}}</h2>
+                                    @foreach($posts as $post)
+                                        <h1>{{$post->title}}</h1>
+                                        <h2>{{$post->post_text}}</h2>
+                                        <h3>{{$post->user->name}}</h3>
                                     @endforeach
 
                                     <p>I am in the website field since 2004 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>, et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc congue sodales. Sed posuere nisi ipsum, eget dignissim nunc dapibus eget. Aenean elementum sollicitudin sapien ut sapien fermentum aliquet mollis. Curabitur ac quam orci sodales quam ut tempor. suspendisse, gravida in augue in, interdum <b><a href="{{ url("/work") }}" data-toggle="tooltip" data-placement="top" title="Check out my work.">Work</a></b> bibendum dui. Suspendisse sit amet justo sit amet diam fringilla commodo. Praesent ac magna at metus malesuada tincidunt non ac arcu. Nunc gravida eu felis vel elementum. Vestibulum sodales quam ut tempor tempor Donec sollicitudin imperdiet nec tortor nec, tempor semper metus..</p>

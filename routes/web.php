@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\Auth\;
+use App\Http\Controllers\UserController;
+use App\Models\User;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +21,15 @@ Route::view('/about', 'about');
 Route::view('/contact','contact');
 Route::view('/single', 'single');
 Route::view('/work', 'work');
-Route::get('/dashboard', [\App\Http\Controllers\PostController::class, 'index'])
+Route::get('/dashboard',function (){
+    $posts = Post::get();
+    //dd($posts);
+    return view('/dashboard', compact('posts'));
+} )//)
     ->name('dashboard');
 
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])
+    ->name('home');
